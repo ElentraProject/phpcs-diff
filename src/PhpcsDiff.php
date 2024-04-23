@@ -187,7 +187,7 @@ class PhpcsDiff
      * @param string $ruleset
      * @return mixed
      */
-    protected function runPhpcs(array $files = [], string $ruleset = 'ruleset.xml')
+    protected function runPhpcs(array $files = [], string $ruleset = '.phpcs.xml.dist')
     {
         $exec = null;
         $root = dirname(__DIR__);
@@ -258,7 +258,7 @@ class PhpcsDiff
         );
 
         // Convert files into an array
-        $output = explode(PHP_EOL, $output);
+        $output = explode(PHP_EOL, (string)$output);
 
         // Remove any empty values
         return array_filter($output);
